@@ -31,6 +31,29 @@ const Pong = ({ mode = 'AI' }) => {
   const [player2Y, setPlayer2Y] = useState(150);
   const [player2Speed, setPlayer2Speed] = useState(0);
 
+  const checkCollisionWithPaddle = (ball, paddle) => {
+    const pointsToCheck = [];
+  
+    for (let i = 0; i < 20; i++) {
+      const angle = (i / 20) * 2 * Math.PI;
+      const x = ball.x + ball.radius * Math.cos(angle);
+      const y = ball.y + ball.radius * Math.sin(angle);
+      pointsToCheck.push({ x, y });
+    }
+  
+    for (let point of pointsToCheck) {
+      if (
+        point.x >= paddle.x && point.x <= paddle.x + paddle.width &&
+        point.y >= paddle.y && point.y <= paddle.y + paddle.height
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
+  
+  
+
   const updateGame = () => {
     const canvas = canvasRef.current;
 
@@ -50,7 +73,8 @@ const Pong = ({ mode = 'AI' }) => {
       newBall.velocityY = -newBall.velocityY;
     }
 
-    if (newBall.x - newBall.radius < paddleWidth * 2 && newBall.y > newPlayerY && newBall.y < newPlayerY + paddleHeight) {
+
+    if (checkCollisionWithPaddle(newBall, { x: paddleWidth, y: newPlayerY, width: paddleWidth, height: paddleHeight })) {
       newBall.velocityX = -newBall.velocityX;
 
       const paddleCenter = newPlayerY + paddleHeight / 2;
@@ -61,7 +85,7 @@ const Pong = ({ mode = 'AI' }) => {
       newBall.velocityX = newBall.velocityX > 0 ? newBall.speed : -newBall.speed;
     }
 
-    if (mode === 'multiplayer' && newBall.x + newBall.radius > canvas.width - paddleWidth && newBall.y > newPlayer2Y && newBall.y < newPlayer2Y + paddleHeight) {
+    if (mode === 'multiplayer' && checkCollisionWithPaddle(newBall, { x: canvas.width - paddleWidth * 2, y: newPlayer2Y, width: paddleWidth, height: paddleHeight })) {
       newBall.velocityX = -newBall.velocityX;
 
       const paddleCenter = newPlayer2Y + paddleHeight / 2;
@@ -71,7 +95,7 @@ const Pong = ({ mode = 'AI' }) => {
       newBall.velocityY = newBall.speed * Math.sin(angle);
       newBall.velocityX = newBall.velocityX > 0 ? newBall.speed : -newBall.speed;
     }else if (mode === 'AI') {
-      if (newBall.x + newBall.radius > canvas.width - paddleWidth * 2 && newBall.y > computerY && newBall.y < computerY + paddleHeight) {
+      if (checkCollisionWithPaddle(newBall, { x: canvas.width - paddleWidth * 2, y: computerY, width: paddleWidth, height: paddleHeight })) {
         newBall.velocityX = -newBall.velocityX;
 
         const paddleCenter = newPlayer2Y + paddleHeight / 2;

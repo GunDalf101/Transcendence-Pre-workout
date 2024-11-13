@@ -23,23 +23,50 @@
     <!-- Header Section -->
     <header class="text-center py-10">
         <h1 class="text-6xl font-bold pixel-font animate-pulse text-yellow-400">Pong Game</h1>
-        <p class="mt-4 text-xl pixel-font text-gray-400">Select your game mode to start playing!</p>
+        <p class="mt-4 text-xl pixel-font text-gray-400">Choose your game mode to start playing!</p>
     </header>
 
     <!-- Main Lobby Section -->
-    <section class="flex flex-col items-center justify-center space-y-8 px-4">
-        <!-- Game Mode Selection -->
-        <div class="bg-gray-900 p-8 rounded-2xl shadow-lg border-4 border-yellow-400 w-full max-w-md">
-            <h2 class="text-3xl font-bold text-center mb-6 pixel-font">Choose Game Mode</h2>
+    <section class="flex flex-col items-center justify-center space-y-12 px-4">
+        
+        <!-- Local Games Section -->
+        <div class="bg-gray-900 p-8 rounded-2xl shadow-lg border-4 border-yellow-400 w-full max-w-lg">
+            <h2 class="text-3xl font-bold text-center mb-6 pixel-font">Local Games</h2>
             <div class="space-y-4">
-                <!-- Player vs AI Button -->
+                <!-- Local Player vs AI Button -->
                 <button class="w-full py-4 text-lg font-bold bg-yellow-500 text-black rounded-full retro-btn hover:bg-yellow-400 transition duration-300 pixel-font">
                     Play Against AI
                 </button>
 
-                <!-- Player vs Player Button -->
+                <!-- Local Player vs Player Button -->
                 <button class="w-full py-4 text-lg font-bold bg-yellow-500 text-black rounded-full retro-btn hover:bg-yellow-400 transition duration-300 pixel-font">
                     Play Against Player 2
+                </button>
+
+                <!-- Local Tournament Button -->
+                <button class="w-full py-4 text-lg font-bold bg-yellow-500 text-black rounded-full retro-btn hover:bg-yellow-400 transition duration-300 pixel-font">
+                    Local Tournament
+                </button>
+            </div>
+        </div>
+
+        <!-- Online Games Section -->
+        <div class="bg-gray-900 p-8 rounded-2xl shadow-lg border-4 border-yellow-400 w-full max-w-lg">
+            <h2 class="text-3xl font-bold text-center mb-6 pixel-font">Online Games</h2>
+            <div class="space-y-4">
+                <!-- Online Player vs AI Button -->
+                <button class="w-full py-4 text-lg font-bold bg-yellow-500 text-black rounded-full retro-btn hover:bg-yellow-400 transition duration-300 pixel-font">
+                    Play Against AI
+                </button>
+
+                <!-- Online Player vs Player Button -->
+                <button class="w-full py-4 text-lg font-bold bg-yellow-500 text-black rounded-full retro-btn hover:bg-yellow-400 transition duration-300 pixel-font">
+                    Play Against Player 2
+                </button>
+
+                <!-- Online Tournament Button -->
+                <button class="w-full py-4 text-lg font-bold bg-yellow-500 text-black rounded-full retro-btn hover:bg-yellow-400 transition duration-300 pixel-font">
+                    Online Tournament
                 </button>
             </div>
         </div>

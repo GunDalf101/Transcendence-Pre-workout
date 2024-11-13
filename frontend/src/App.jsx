@@ -13,6 +13,7 @@ import MatchHistory from './pages/MatchHistory'
 import 'react-toastify/dist/ReactToastify.css'
 
 const Logout = () => {
+
   localStorage.clear()
   return <Navigate to="/login" />
 }
@@ -26,19 +27,19 @@ const App = () => {
   return (
     // <Pong />
     <BrowserRouter>
-      <ToastContainer />
-      <Routes>
-          <Route path="/" element={<MainLayout />} >
-            <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
-            <Route path="/game" element={<ProtectedRoute><Game /></ProtectedRoute>} />
-            <Route path="/match-history" element={<ProtectedRoute><MatchHistory /></ProtectedRoute>} />
-          </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<RegisterAndLogout />} />
-          <Route path="*" element={<NotFound />} />
-          
-      </Routes>
+        <ToastContainer />
+        <Routes>
+            <Route path="/" element={<MainLayout />} >
+              <Route index element={<ProtectedRoute><Home /></ProtectedRoute>} />
+              <Route path="/game" element={<ProtectedRoute><Game /></ProtectedRoute>} />
+              <Route path="/match-history" element={<ProtectedRoute><MatchHistory /></ProtectedRoute>} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/register" element={<RegisterAndLogout />} />
+            <Route path="*" element={<NotFound />} />
+            
+        </Routes>
     </BrowserRouter>
   )
 }
