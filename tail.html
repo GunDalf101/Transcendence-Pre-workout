@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game Lobby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        .pixel-font {
+            font-family: 'Press Start 2P', sans-serif;
+        }
+        .retro-btn {
+            box-shadow: 4px 4px #1c1c1c, -4px -4px #ffffff;
+        }
+        .retro-btn:hover {
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- Header Section -->
+    <header class="text-center py-10">
+        <h1 class="text-6xl font-bold pixel-font animate-pulse text-yellow-400">Pong Game</h1>
+        <p class="mt-4 text-xl pixel-font text-gray-400">Select your game mode to start playing!</p>
+    </header>
+
+    <!-- Main Lobby Section -->
+    <section class="flex flex-col items-center justify-center space-y-8 px-4">
+        <!-- Game Mode Selection -->
+        <div class="bg-gray-900 p-8 rounded-2xl shadow-lg border-4 border-yellow-400 w-full max-w-md">
+            <h2 class="text-3xl font-bold text-center mb-6 pixel-font">Choose Game Mode</h2>
+            <div class="space-y-4">
+                <!-- Player vs AI Button -->
+                <button class="w-full py-4 text-lg font-bold bg-yellow-500 text-black rounded-full retro-btn hover:bg-yellow-400 transition duration-300 pixel-font">
+                    Play Against AI
+                </button>
+
+                <!-- Player vs Player Button -->
+                <button class="w-full py-4 text-lg font-bold bg-yellow-500 text-black rounded-full retro-btn hover:bg-yellow-400 transition duration-300 pixel-font">
+                    Play Against Player 2
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="mt-16 text-center text-gray-400 pixel-font">
+            <p>&copy; 2024 Pong Game - Retro Edition</p>
+            <p class="text-sm">Powered by pixelated nostalgia!</p>
+        </footer>
+    </section>
+
+</body>
+</html>
